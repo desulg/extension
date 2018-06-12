@@ -1,16 +1,15 @@
-// var app = chrome.runtime.getBackgroundPage();
 
-function wordReplacement() {
-  let beforeWord = document.getElementsByName('before')[0].value;
-  let afterWord = document.getElementsByName('after')[0].value;
-  console.log(beforeWord, afterWord);
+  function FR() {
+    chrome.tabs.executeScript({file: 'content.js'});
+  }
 
-  $(document).ready(function(){
-    var reg = new RegExp(beforeWord, "g");
-    $("body").children().each(function(){
-      $(this).html($(this).html().replace(reg, afterWord))
+  document.addEventListener('DOMContentLoaded', function() {
+      let openRajaTab = document.getElementById('schools')
+      openRajaTab.addEventListener('click', function() {
+        chrome.tabs.create({ url: 'http://www.rajaleidja.ee/korgkoolid' })
+
+      })
     })
-  })
-};
 
-document.getElementById('wordRep').addEventListener('click', wordReplacement);
+
+    document.getElementById('wordRep').addEventListener('click', FR);
