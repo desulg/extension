@@ -1,1 +1,1 @@
-# Laiendus2
+Parima kooli laiendus
